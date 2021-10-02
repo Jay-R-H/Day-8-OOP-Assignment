@@ -5,6 +5,7 @@ public class EmployeeWageBuilder {
     public static final int isPartTime = 2;
     static final int wagePerHour = 20;
     static final int totalWorkingDays = 20;
+    static final int totalWorkingHours = 100;
 
 
     public static void main(String[] args) {
@@ -16,11 +17,11 @@ public class EmployeeWageBuilder {
         int workingHrs = 0;
         int workingDays = 0;
         int totalWage=0;
-        while (totalWorkingDays > workingDays) {
+
+        while (totalWorkingDays > workingDays && totalWorkingHours>workingHrs) {
             switch (employeeCheck) {
 
                 case isFullTime:
-
                     workingHrs = 8;
                     break;
 
@@ -34,9 +35,10 @@ public class EmployeeWageBuilder {
                     break;
             }
             workingDays++;
+            totalWorkingHours+=workingHrs;
             int wage = (wagePerHour * workingHrs);
-            totalWage+=wage;
-            System.out.println("The employee has worked for " + workingHrs + " hrs ,and earned " + totalWage);
+            totalWage += wage;
         }
+            System.out.println("The employee has worked for " + workingHrs + " hrs ,and earned " + totalWage);
     }
 }
