@@ -10,23 +10,30 @@ public class EmployeeWageBuilder {
 
     public static void main(String[] args) {
         System.out.println("Welcome to employee wage computation");
+        employeeWageCompute();
+    }
 
-        int employeeCheck = (int) Math.floor((Math.random() * 10) % 3);
-            /*switch case statement is used  for
-            checking his presence to duty*/
+    public static void employeeWageCompute() {
+
         int workingHrs = 0;
         int workingDays = 0;
-        int totalWage=0;
+        int totalWage = 0;
+        /*switch case statement is used  for
+        checking his presence to duty*/
+        while (totalWorkingDays > workingDays && totalWorkingHours > workingHrs) {
 
-        while (totalWorkingDays > workingDays && totalWorkingHours>workingHrs) {
+            int employeeCheck = (int) Math.floor((Math.random() * 10) % 3);
+
             switch (employeeCheck) {
 
                 case isFullTime:
                     workingHrs = 8;
+                    System.out.println("The employee has worked for " + workingHrs + " hrs");
                     break;
 
                 case isPartTime:
                     workingHrs = 4;
+                    System.out.println("The employee has worked for " + workingHrs + " hrs");
                     break;
 
                 default:
@@ -35,10 +42,13 @@ public class EmployeeWageBuilder {
                     break;
             }
             workingDays++;
-            totalWorkingHours+=workingHrs;
+            workingHrs += workingHrs;
             int wage = (wagePerHour * workingHrs);
             totalWage += wage;
         }
-            System.out.println("The employee has worked for " + workingHrs + " hrs ,and earned " + totalWage);
+        System.out.println("The employee has worked for " + totalWorkingHours + " hrs ,and earned " + totalWage + "$");
     }
 }
+
+
+
